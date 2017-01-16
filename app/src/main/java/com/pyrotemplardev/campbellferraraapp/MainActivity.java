@@ -2,7 +2,7 @@ package com.pyrotemplardev.campbellferraraapp;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Window;
+
 
 public class MainActivity extends Activity {
 
@@ -10,7 +10,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Remove title bar
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+      //  requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
     }
 }

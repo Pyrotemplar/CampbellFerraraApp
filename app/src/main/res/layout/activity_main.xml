@@ -1,9 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.pyrotemplardev.campbellferraraapp.MainActivity">
 
-</RelativeLayout>
+    <ImageView
+        android:id="@+id/LogoView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/campbell_logo_image" />
+
+    <ImageButton
+        android:id="@+id/contactUsButtonView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:layout_margin="10dp"
+        android:background="@drawable/contact_us_button_image" />
+
+    <ImageButton
+        android:id="@+id/DirectionsButtonView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:layout_margin="10dp"
+        android:background="@drawable/directions_button_image" />
+
+    <ImageButton
+        android:id="@+id/LearnMoreButtonView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:layout_margin="10dp"
+        android:background="@drawable/learn_more_button_image" />
+
+
+</LinearLayout>
