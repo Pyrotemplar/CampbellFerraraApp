@@ -1,4 +1,4 @@
-package com.pyrotemplardev.campbellferraraapp;
+package com.pyrotemplardev.campbellferraraapp.Utils;
 
 /**
  * Created by Pyrotemplar on 1/16/2017.

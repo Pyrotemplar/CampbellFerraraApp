@@ -1,4 +1,4 @@
-package com.pyrotemplardev.campbellferraraapp;
+package com.pyrotemplardev.campbellferraraapp.Screens;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -6,12 +6,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.pyrotemplardev.campbellferraraapp.R;
+import com.pyrotemplardev.campbellferraraapp.Utils.SendMail;
+
 
 /**
  * Created by Pyrotemplar on 1/16/2017.
  */
 
-public class EmailForm extends Activity implements View.OnClickListener {
+public class MessageFormActivity extends Activity implements View.OnClickListener {
     //Declaring EditText
     private EditText editTextEmail;
     private EditText editTextSubject;
@@ -23,7 +26,7 @@ public class EmailForm extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.test_email_form_layout);
+        setContentView(R.layout.message_form_layout);
 
         //Initializing the views
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);

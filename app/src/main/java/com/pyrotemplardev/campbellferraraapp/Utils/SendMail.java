@@ -1,9 +1,11 @@
-package com.pyrotemplardev.campbellferraraapp;
+package com.pyrotemplardev.campbellferraraapp.Utils;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
+
+import com.pyrotemplardev.campbellferraraapp.Utils.MailerConfig;
 
 import java.util.Properties;
 
@@ -30,6 +32,7 @@ public class SendMail extends AsyncTask<Void,Void,Void> {
     private String email;
     private String subject;
     private String message;
+
 
     //Progressdialog to show while sending email
     private ProgressDialog progressDialog;

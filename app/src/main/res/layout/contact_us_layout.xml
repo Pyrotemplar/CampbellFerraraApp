@@ -21,11 +21,12 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_marginBottom="5dp">
+
         <ImageButton
-            android:id="@+id/contactUsButtonView"
+            android:id="@+id/messageButtonView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/contact_us_button_image"/>
+            android:background="@drawable/message_button_image"/>
 
     </LinearLayout>
 
@@ -35,10 +36,10 @@
         android:layout_weight="1"
         android:layout_marginBottom="5dp">
         <ImageButton
-            android:id="@+id/directionsButtonView"
+            android:id="@+id/callNowButtonView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/directions_button_image"/>
+            android:background="@drawable/call_now_button_image"/>
 
     </LinearLayout>
 
@@ -48,10 +49,10 @@
         android:layout_weight="1"
         android:layout_marginBottom="5dp">
         <ImageButton
-            android:id="@+id/learnMoreButtonView"
+            android:id="@+id/requestConsultationButtonView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/learn_more_button_image"/>
+            android:background="@drawable/request_consultation_button_image"/>
 
     </LinearLayout>
 
