@@ -5,6 +5,9 @@ package com.pyrotemplardev.campbellferraraapp.Utils;
  */
 
 public class MailerConfig {
-    public static final String EMAIL ="mlm88k";
-    public static final String PASSWORD ="030618xX!";
+    public static final String USERNAME ="apikey";
+    public static final String PASSWORD ="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";
+    public static final String SENDEREMAIL="CampbellFerraraApp@CampbellFerrara.com";
+    public static final String RECIVEREMAIL="mlm09k@gmail.com";
+
 }

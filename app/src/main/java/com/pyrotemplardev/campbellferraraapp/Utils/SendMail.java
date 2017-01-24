@@ -69,7 +69,7 @@ public class SendMail extends AsyncTask<Void,Void,Void> {
 
         //Configuring properties for gmail
         //If you are not using gmail you may need to change the values
-        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.host", "smtp.sendgrid.net");
         props.put("mail.smtp.socketFactory.port", "465");
         props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
         props.put("mail.smtp.auth", "true");
@@ -80,7 +80,7 @@ public class SendMail extends AsyncTask<Void,Void,Void> {
                 new javax.mail.Authenticator() {
                     //Authenticating the password
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(MailerConfig.EMAIL, MailerConfig.PASSWORD);
+                        return new PasswordAuthentication(MailerConfig.USERNAME, MailerConfig.PASSWORD);
                     }
                 });
 
@@ -89,13 +89,13 @@ public class SendMail extends AsyncTask<Void,Void,Void> {
             MimeMessage mm = new MimeMessage(session);
 
             //Setting sender address
-            mm.setFrom(new InternetAddress(MailerConfig.EMAIL));
+            mm.setFrom(new InternetAddress(MailerConfig.SENDEREMAIL));
             //Adding receiver
-            mm.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+            mm.addRecipient(Message.RecipientType.TO, new InternetAddress(MailerConfig.RECIVEREMAIL));
             //Adding subject
             mm.setSubject(subject);
             //Adding message
-            mm.setText(message);
+            mm.setText("Email Address: "+email+"\n"+message);
 
             //Sending email
             Transport.send(mm);
