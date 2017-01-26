@@ -1,0 +1,6 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true" android:state_pressed="false" android:drawable="@drawable/about_us_button_image" />
+    <item android:state_focused="true" android:state_pressed="true" android:drawable="@drawable/down_about_us_button_image" />
+    <item android:state_focused="false" android:state_pressed="true" android:drawable="@drawable/down_about_us_button_image" />
+    <item android:drawable="@drawable/about_us_button_image" />
+</selector>

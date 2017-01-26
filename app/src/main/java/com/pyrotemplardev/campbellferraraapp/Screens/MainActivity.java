@@ -9,8 +9,15 @@ import android.widget.ImageButton;
 
 import com.pyrotemplardev.campbellferraraapp.R;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class MainActivity extends Activity implements View.OnClickListener {
+
+    @BindView(R.id.contactUsButtonView) ImageButton contactUsButton;
+    @BindView(R.id.directionsButtonView) ImageButton directionButton;
+    @BindView(R.id.learnMoreButtonView) ImageButton learnMoreButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,10 +25,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         //Remove title bar
         //  requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-
-        ImageButton contactUsButton = (ImageButton) findViewById(R.id.contactUsButtonView);
-        ImageButton directionButton = (ImageButton) findViewById(R.id.directionsButtonView);
-        ImageButton learnMoreButton = (ImageButton) findViewById(R.id.learnMoreButtonView);
+        ButterKnife.bind(this);
 
 
         //Adding click listener

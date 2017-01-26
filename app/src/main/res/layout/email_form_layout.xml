@@ -12,8 +12,9 @@
 
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:src="@drawable/campbell_logo_image" />
 
         <TableLayout
@@ -30,8 +31,7 @@
                     android:layout_height="wrap_content"
                     android:text="Name:"
                     android:textColor="@color/colorPrimaryText"
-                    android:textSize="@dimen/emailTextSize"
-                    android:textStyle="bold" />
+                    android:textSize="@dimen/emailTextSize" />
 
                 <EditText
                     android:layout_width="0dp"
@@ -41,10 +41,9 @@
                     android:scrollHorizontally="true"
                     android:layout_weight="1"
                     android:ellipsize="end"
-                    android:background="@color/colorFromBoxBackground"
                     android:hint="First"
                     android:textAlignment="center"
-                    android:id="@+id/editText2">
+                    android:id="@+id/emailEditTextFirstName">
                     <requestFocus />
                 </EditText>
 
@@ -54,8 +53,8 @@
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:inputType="textPersonName"
-                    android:background="@color/colorFromBoxBackground"
                     android:hint="Last"
+                    android:id="@+id/emailEditTextLastName"
                     android:textAlignment="center" />
 
             </TableRow>
@@ -71,16 +70,16 @@
                     android:text="Email:"
                     android:textColor="@color/colorPrimaryText"
                     android:textSize="@dimen/emailTextSize"
-                    android:textStyle="bold" />
+                   />
 
                 <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@color/colorFromBoxBackground"
                     android:hint="Email@Email.com"
                     android:inputType="textEmailAddress"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:id="@+id/emailEditTextEmail" />
 
 
             </TableRow>
@@ -96,7 +95,7 @@
                     android:text="Phone:"
                     android:textColor="@color/colorPrimaryText"
                     android:textSize="@dimen/emailTextSize"
-                    android:textStyle="bold" />
+                   />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -109,17 +108,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
-                        android:background="@color/colorFromBoxBackground"
                         android:hint="Cell Phone"
+                        android:id="@+id/EmailEditTextCellPhone"
                         android:inputType="phone"
                         android:textAlignment="center" />
 
                     <EditText
-                        android:id="@+id/editText"
+                        android:id="@+id/EmailEditTextHomePhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="phone"
-                        android:background="@color/colorFromBoxBackground"
                         android:hint="Home Phone"
                         android:textAlignment="center" />
                 </LinearLayout>
@@ -138,7 +136,7 @@
                     android:text="Address:"
                     android:textColor="@color/colorPrimaryText"
                     android:textSize="@dimen/emailTextSize"
-                    android:textStyle="bold" />
+                    />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -148,11 +146,10 @@
                     android:orientation="vertical">
 
                     <EditText
-                        android:id="@+id/streetTextView"
+                        android:id="@+id/emailEditTextStreet"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
-                        android:background="@color/colorFromBoxBackground"
                         android:hint="Street"
                         android:inputType="textPostalAddress"
                         android:textAlignment="center" />
@@ -163,36 +160,33 @@
                         android:layout_marginBottom="5dp">
 
                         <EditText
-                            android:id="@+id/cityTextView"
+                            android:id="@+id/emailEditTextCity"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="5dp"
                             android:layout_weight="1"
                             android:inputType="textPostalAddress"
-                            android:background="@color/colorFromBoxBackground"
                             android:hint="City"
                             android:textAlignment="center" />
 
                         <AutoCompleteTextView
-                            android:id="@+id/stateTextView"
+                            android:id="@+id/emailEditTextState"
                             android:layout_width="0dp"
                             android:inputType="textPostalAddress"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
                             android:layout_weight="1"
-                            android:background="@color/colorFromBoxBackground"
                             android:hint="State"
                             android:textAlignment="center" />
                     </LinearLayout>
 
                     <EditText
-                        android:id="@+id/zipCodeTextView"
+                        android:id="@+id/emailEditTextZipCode"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
                         android:layout_weight="1"
                         android:inputType="textPostalAddress"
-                        android:background="@color/colorFromBoxBackground"
                         android:hint="Zipcode"
                         android:textAlignment="center" />
 
@@ -218,13 +212,12 @@
                         android:text="Message:"
                         android:textColor="@color/colorPrimaryText"
                         android:textSize="@dimen/emailTextSize"
-                        android:textStyle="bold" />
+                       />
 
                     <EditText
-                        android:id="@+id/editTextMessage"
+                        android:id="@+id/emailEditTextMessage"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/colorFromBoxBackground"
                         android:inputType="textMultiLine"
                         android:lines="6" />
                 </LinearLayout>
@@ -232,11 +225,11 @@
             </TableRow>
         </TableLayout>
 
-        <ImageButton
-            android:layout_width="wrap_content"
+        <Button
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_launcher" />
+            android:id="@+id/buttonSend"
+            android:text="Send" />
 
 
     </LinearLayout>

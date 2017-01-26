@@ -25,7 +25,7 @@
             android:id="@+id/contactUsButtonView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/contact_us_button_image"/>
+            android:background="@drawable/contact_us_button"/>
 
     </LinearLayout>
 
@@ -38,7 +38,7 @@
             android:id="@+id/directionsButtonView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/directions_button_image"/>
+            android:background="@drawable/directions_button"/>
 
     </LinearLayout>
 
@@ -51,7 +51,7 @@
             android:id="@+id/learnMoreButtonView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/learn_more_button_image"/>
+            android:background="@drawable/learn_more_button"/>
 
     </LinearLayout>
 

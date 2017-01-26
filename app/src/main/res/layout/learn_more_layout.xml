@@ -23,15 +23,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="2.5dp"
-
-            android:background="@drawable/porfolio_button_image"
+            android:id="@+id/portfolioButton"
+            android:background="@drawable/portfolio_button"
             android:layout_weight="1" />
         <ImageButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="2.5dp"
-
-            android:background="@drawable/reviews_button_image"
+android:id="@+id/reviewsButton"
+            android:background="@drawable/reviews_button"
             android:layout_weight="1" />
 
     </LinearLayout>
@@ -45,13 +45,15 @@
         <ImageButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/services_button_image"
+            android:background="@drawable/services_button"
             android:layout_marginRight="2.5dp"
+            android:id="@+id/servicesButton"
             android:layout_weight="1" />
         <ImageButton
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/about_us_button_image"
+            android:background="@drawable/about_us_button"
+            android:id="@+id/aboutUsButton"
             android:layout_marginLeft="2.5dp"
             android:layout_weight="1" />
 
@@ -64,8 +66,9 @@
         android:layout_marginBottom="5dp">
         <ImageButton
             android:layout_width="wrap_content"
+            android:id="@+id/fullWebsiteButton"
             android:layout_height="wrap_content"
-            android:background="@drawable/full_website_button_image"/>
+            android:background="@drawable/full_website_button"/>
 
     </LinearLayout>
 
