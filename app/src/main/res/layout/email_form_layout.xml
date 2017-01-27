@@ -228,6 +228,12 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/attachButton"
+            android:text="Attach" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/buttonSend"
             android:text="Send" />
 

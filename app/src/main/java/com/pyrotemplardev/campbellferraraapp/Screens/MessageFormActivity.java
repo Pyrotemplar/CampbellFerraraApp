@@ -46,8 +46,9 @@ public class MessageFormActivity extends Activity implements View.OnClickListene
         String subject = messageEditTextSubject.getText().toString().trim();
         String message = messageEditTextMessage.getText().toString().trim();
 
+
         //Creating SendMail object
-        SendMail sm = new SendMail(this, email, subject, message);
+        SendMail sm = new SendMail(this, subject, email +"\n\n"+message, "");
 
         //Executing sendmail to send email
         sm.execute();

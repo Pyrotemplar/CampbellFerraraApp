@@ -14,6 +14,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -62,7 +63,6 @@ public class MailSender extends javax.mail.Authenticator {
         props.put("mail.smtp.socketFactory.fallback", "false");
         props.setProperty("mail.smtp.quitwait", "false");
 
-
         session = Session.getDefaultInstance(props, this);
 
     }
@@ -75,9 +75,7 @@ public class MailSender extends javax.mail.Authenticator {
     }
 
 
-    public synchronized void sendMail(String subject, String body,
-
-                                      String sender, String recipients) throws Exception {
+    public synchronized void sendMail(String subject, String body, String sender, String recipients) throws Exception {
 
         try {
 
@@ -106,15 +104,11 @@ public class MailSender extends javax.mail.Authenticator {
 
             if (recipients.indexOf(',') > 0)
 
-                message.setRecipients(Message.RecipientType.TO,
-
-                        InternetAddress.parse(recipients));
+                message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipients));
 
             else
 
-                message.setRecipient(Message.RecipientType.TO,
-
-                        new InternetAddress(recipients));
+                message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipients));
 
             Transport.send(message);
 
