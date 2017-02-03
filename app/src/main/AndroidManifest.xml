@@ -13,23 +13,30 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Screens.MainActivity">
+        <activity
+            android:name=".Screens.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Screens.ContatcUsActivity">
+        <activity
+            android:name=".Screens.ContatcUsActivity"
+            android:screenOrientation="portrait">
 
         </activity>
         <activity android:name=".Screens.MessageFormActivity">
 
         </activity>
-        <activity android:name=".Screens.LearnMoreActivity">
+        <activity
+            android:name=".Screens.LearnMoreActivity"
+            android:screenOrientation="portrait">
 
         </activity>
-        <activity android:name=".Screens.RequestConsultationActivity">
+        <activity android:name=".Screens.EmailFormActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden">
 
         </activity>
     </application>

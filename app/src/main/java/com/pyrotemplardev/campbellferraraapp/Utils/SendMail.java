@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Environment;
 import android.widget.Toast;
 
+import com.pyrotemplardev.campbellferraraapp.Screens.EmailFormActivity;
 import com.pyrotemplardev.campbellferraraapp.Utils.MailerConfig;
 
 import java.io.File;
@@ -37,24 +38,25 @@ public class SendMail extends AsyncTask<Void, Void, Void> {
     private Context context;
     private Session session;
 
+    private Multipart multipart;
+
+    private MimeMessage emailMessage;
+
     //Information to send email
-    private String email;
     private String subject;
     private String message;
-
-    // attachment path
-    String filename = Environment.getExternalStorageDirectory().getPath() + "/rmsINFO.text";
 
     //Progressdialog to show while sending email
     private ProgressDialog progressDialog;
 
     //Class Constructor
-    public SendMail(Context context, String subject, String message, String ImagePath) {
+    public SendMail(Context context, String subject) {
         //Initializing variables
         this.context = context;
         this.subject = subject;
-        this.message = message;
-        this.filename = ImagePath;
+
+        createEmail();
+
     }
 
     @Override
@@ -69,6 +71,7 @@ public class SendMail extends AsyncTask<Void, Void, Void> {
         super.onPostExecute(aVoid);
         //Dismissing the progress dialog
         progressDialog.dismiss();
+        EmailFormActivity.getInstance().finish();
         //Showing a success message
         Toast.makeText(context, "Message Sent", Toast.LENGTH_LONG).show();
     }
@@ -76,7 +79,46 @@ public class SendMail extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... params) {
 
+        try {
 
+            // put together the complete message parts
+            emailMessage.setContent(multipart);
+
+            // Send message
+            Transport.send(emailMessage);
+
+
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void addAttachment(String filename) throws Exception {
+
+        //create attachment parts to add to body
+        BodyPart bodyPart = new MimeBodyPart();
+        DataSource source = new FileDataSource(filename);
+        bodyPart.setDataHandler(new DataHandler(source));
+        bodyPart.setFileName(filename);
+        multipart.addBodyPart(bodyPart);
+
+    }
+
+    public void addMessage(String message) {
+      try {
+          // Create the message part
+          BodyPart messageBodyPart = new MimeBodyPart();
+          // Now set the actual message
+          messageBodyPart.setText(message);
+          multipart.addBodyPart(messageBodyPart);
+      } catch (Exception e){
+          e.printStackTrace();
+      }
+
+    }
+
+    private void createEmail(){
         //Creating properties
         Properties props = new Properties();
 
@@ -98,7 +140,7 @@ public class SendMail extends AsyncTask<Void, Void, Void> {
 
         try {
             //Creating MimeMessage object
-            MimeMessage emailMessage = new MimeMessage(session);
+            emailMessage = new MimeMessage(session);
 
             //Setting sender address
             emailMessage.setFrom(new InternetAddress(MailerConfig.SENDEREMAIL));
@@ -106,35 +148,12 @@ public class SendMail extends AsyncTask<Void, Void, Void> {
             emailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(MailerConfig.RECIVEREMAIL));
             //Adding subject
             emailMessage.setSubject(subject);
-            // Create the message part
-            BodyPart messageBodyPart = new MimeBodyPart();
-            // Now set the actual message
-            messageBodyPart.setText(message);
-            // Create a multipar message
-            Multipart multipart = new MimeMultipart();
-            // Set text message part
-            multipart.addBodyPart(messageBodyPart);
+            //create Muilty part
+            multipart = new MimeMultipart();
 
-            //Adding message
-            //  emailMessage.setText("Email Address: "+email+"\n"+message);
-
-            // Part two is attachment
-          //  messageBodyPart = new MimeBodyPart();
-         //   DataSource source = new FileDataSource(filename);
-          //  messageBodyPart.setDataHandler(new DataHandler(source));
-         //   messageBodyPart.setFileName(filename);
-         //   multipart.addBodyPart(messageBodyPart);
-
-            // put together the complete message parts
-            emailMessage.setContent(multipart);
-
-            // Send message
-            Transport.send(emailMessage);
-
-
-        } catch (MessagingException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+
     }
 }

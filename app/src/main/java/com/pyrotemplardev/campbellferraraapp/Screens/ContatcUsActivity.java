@@ -1,7 +1,6 @@
 package com.pyrotemplardev.campbellferraraapp.Screens;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -37,7 +36,8 @@ public class ContatcUsActivity extends Activity implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.messageButtonView) {
-            Intent intent = new Intent(this, MessageFormActivity.class);
+            Intent intent = new Intent(this, EmailFormActivity.class);
+            intent.putExtra("message", true);
             startActivity(intent);
         }
         else if(v.getId() == R.id.callNowButtonView){
@@ -45,7 +45,8 @@ public class ContatcUsActivity extends Activity implements View.OnClickListener 
             startActivity(intent);
         }
         else if (v.getId() == R.id.requestConsultationButtonView){
-            Intent intent = new Intent(this, RequestConsultationActivity.class);
+            Intent intent = new Intent(this, EmailFormActivity.class);
+            intent.putExtra("message", false);
             startActivity(intent);
         }
     }

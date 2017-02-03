@@ -48,7 +48,7 @@ public class MessageFormActivity extends Activity implements View.OnClickListene
 
 
         //Creating SendMail object
-        SendMail sm = new SendMail(this, subject, email +"\n\n"+message, "");
+        SendMail sm = new SendMail(this, subject);
 
         //Executing sendmail to send email
         sm.execute();
