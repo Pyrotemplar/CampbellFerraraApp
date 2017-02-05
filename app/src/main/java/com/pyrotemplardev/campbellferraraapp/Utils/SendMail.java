@@ -3,13 +3,11 @@ package com.pyrotemplardev.campbellferraraapp.Utils;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.os.Environment;
 import android.widget.Toast;
 
+import com.pyrotemplardev.campbellferraraapp.R;
 import com.pyrotemplardev.campbellferraraapp.Screens.EmailFormActivity;
-import com.pyrotemplardev.campbellferraraapp.Utils.MailerConfig;
 
-import java.io.File;
 import java.util.Properties;
 
 import javax.activation.DataHandler;
@@ -29,6 +27,7 @@ import javax.mail.internet.MimeMultipart;
 
 /**
  * Created by Pyrotemplar on 1/16/2017.
+ * this activity allows the user to send an email to the company
  */
 
 public class SendMail extends AsyncTask<Void, Void, Void> {
@@ -134,7 +133,7 @@ public class SendMail extends AsyncTask<Void, Void, Void> {
                 new javax.mail.Authenticator() {
                     //Authenticating the password
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(MailerConfig.USERNAME, MailerConfig.PASSWORD);
+                        return new PasswordAuthentication(context.getResources().getString(R.string.USERNAME), context.getResources().getString(R.string.PASSWORD));
                     }
                 });
 
@@ -143,9 +142,9 @@ public class SendMail extends AsyncTask<Void, Void, Void> {
             emailMessage = new MimeMessage(session);
 
             //Setting sender address
-            emailMessage.setFrom(new InternetAddress(MailerConfig.SENDEREMAIL));
+            emailMessage.setFrom(new InternetAddress(context.getResources().getString(R.string.SENDERE_MAIL)));
             //Adding receiver
-            emailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(MailerConfig.RECIVEREMAIL));
+            emailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(context.getResources().getString(R.string.RECIVER_EMAIL)));
             //Adding subject
             emailMessage.setSubject(subject);
             //create Muilty part

@@ -14,6 +14,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Pyrotemplar on 1/22/2017.
+ * This activity allows the ueser to learn more about the company.
  */
 
 public class LearnMoreActivity extends Activity implements View.OnClickListener{
@@ -51,23 +52,23 @@ public class LearnMoreActivity extends Activity implements View.OnClickListener{
 
         if(v.getId() == portfolioButton.getId())
         {
-            webpageURL = "http://campbellferrara.com/design-portfolio/";
+            webpageURL = getResources().getString(R.string.portfolio_link);
         }
         if(v.getId() == reviewsButton.getId())
         {
-            webpageURL = "http://campbellferrara.com/reviews/";
+            webpageURL = getResources().getString(R.string.reviews_link);
         }
         if(v.getId() == servicesButton.getId())
         {
-            webpageURL = "http://campbellferrara.com/landscaping-services/";
+            webpageURL = getResources().getString(R.string.services_link);
         }
         if(v.getId() == aboutUsButton.getId())
         {
-            webpageURL = "http://campbellferrara.com/about/";
+            webpageURL = getResources().getString(R.string.about_us_link);
         }
         if(v.getId() == fullWebsiteButton.getId())
         {
-            webpageURL = "http://campbellferrara.com/";
+            webpageURL = getResources().getString(R.string.full_website_link);
         }
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(webpageURL));
         startActivity(browserIntent);

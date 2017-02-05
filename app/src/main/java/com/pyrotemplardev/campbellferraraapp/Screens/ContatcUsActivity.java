@@ -11,10 +11,11 @@ import com.pyrotemplardev.campbellferraraapp.R;
 
 /**
  * Created by Pyrotemplar on 1/22/2017.
+ * This activity is used to allow the user to make contact
  */
 
 public class ContatcUsActivity extends Activity implements View.OnClickListener {
-    String phoneNumber = "5616019451";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +42,7 @@ public class ContatcUsActivity extends Activity implements View.OnClickListener 
             startActivity(intent);
         }
         else if(v.getId() == R.id.callNowButtonView){
-            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phoneNumber));
+            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + getResources().getString(R.string.PHONE_NUMBER)));
             startActivity(intent);
         }
         else if (v.getId() == R.id.requestConsultationButtonView){

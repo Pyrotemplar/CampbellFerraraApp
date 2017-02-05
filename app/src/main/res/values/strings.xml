@@ -1,6 +1,11 @@
 <resources>
-    <string name="app_name">CampbellFerraraApp</string>
+    <string name="app_name">Campbell Ferrara</string>
     <string name="state_prompt">Choose Your State</string>
+    <string name="portfolio_link">http://campbellferrara.com/portfolio-alexandria-va/</string>
+    <string name="services_link">http://campbellferrara.com/services-alexandria-va/</string>
+    <string name="reviews_link">http://campbellferrara.com/reviews/</string>
+    <string name="about_us_link">http://campbellferrara.com/about/</string>
+    <string name="full_website_link">http://campbellferrara.com/</string>
 
     <string-array name="state_name_array">
         <item>State</item>
