@@ -13,6 +13,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
@@ -72,6 +73,8 @@ public class EmailFormActivity extends Activity {
     @Nullable
     @BindView(R.id.messageEditText)
     EditText messageEditText;
+    @BindView(R.id.buttonSend)
+    Button buttonSend;
 
 
     final private String SUBJECT_CONSULTATION = "Consultation Request";
@@ -94,11 +97,13 @@ public class EmailFormActivity extends Activity {
         emailFormActivity = this;
 
         //Creating SendMail object
-        if (isMessageForm)
+        if (isMessageForm) {
+            buttonSend.setText("Send Message");
             sm = new SendMail(this, SUBJECT_MESSAGE);
-        else
+        }else {
+            buttonSend.setText("Send Request");
             sm = new SendMail(this, SUBJECT_CONSULTATION);
-
+        }
 
 //        //Adding click listener
 //        sendButton.setOnClickListener(this);
@@ -138,7 +143,7 @@ public class EmailFormActivity extends Activity {
                 "Email: " + emailAddress + "\n\n" +
                 "Cell Phone: " + cellPhone + "\n\n" +
                 "Home Phone: " + homePhone + "\n\n" +
-                "Address:\n\n" + address + "\n\n" +
+                "Address:\n\n" + address + "\n\n\n\n" +
                 message;
 
         sm.addMessage(wholeMessage);
