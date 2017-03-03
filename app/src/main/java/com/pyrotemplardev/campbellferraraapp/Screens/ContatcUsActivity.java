@@ -1,9 +1,11 @@
 package com.pyrotemplardev.campbellferraraapp.Screens;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -15,6 +17,8 @@ import com.pyrotemplardev.campbellferraraapp.R;
  */
 
 public class ContatcUsActivity extends Activity implements View.OnClickListener {
+
+    Vibrator vibrator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +34,16 @@ public class ContatcUsActivity extends Activity implements View.OnClickListener 
         messageButton.setOnClickListener(this);
         callNowButton.setOnClickListener(this);
         requestConsultationButton.setOnClickListener(this);
+
+
+        vibrator = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
     }
 
 
 
     @Override
     public void onClick(View v) {
+        vibrator.vibrate(50);
         if (v.getId() == R.id.messageButtonView) {
             Intent intent = new Intent(this, EmailFormActivity.class);
             intent.putExtra("message", true);

@@ -1,9 +1,11 @@
 package com.pyrotemplardev.campbellferraraapp.Screens;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -30,6 +32,8 @@ public class LearnMoreActivity extends Activity implements View.OnClickListener{
     @BindView(R.id.fullWebsiteButton)
     ImageButton fullWebsiteButton;
 
+    Vibrator vibrator;
+
     String webpageURL;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,8 @@ public class LearnMoreActivity extends Activity implements View.OnClickListener{
         servicesButton.setOnClickListener(this);
         aboutUsButton.setOnClickListener(this);
         fullWebsiteButton.setOnClickListener(this);
+
+        vibrator = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
     }
 
     //**************************
@@ -49,7 +55,7 @@ public class LearnMoreActivity extends Activity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-
+        vibrator.vibrate(50);
         if(v.getId() == portfolioButton.getId())
         {
             webpageURL = getResources().getString(R.string.portfolio_link);

@@ -1,9 +1,11 @@
 package com.pyrotemplardev.campbellferraraapp.Screens;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -19,6 +21,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @BindView(R.id.directionsButtonView) ImageButton directionButton;
     @BindView(R.id.learnMoreButtonView) ImageButton learnMoreButton;
 
+    Vibrator vibrator;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,11 +37,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
         directionButton.setOnClickListener(this);
         learnMoreButton.setOnClickListener(this);
 
+        vibrator = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
+
     }
 
 
     @Override
     public void onClick(View v) {
+        vibrator.vibrate(50);
         if (v.getId() == R.id.contactUsButtonView) {
             Intent intent = new Intent(this, ContatcUsActivity.class);
             startActivity(intent);
