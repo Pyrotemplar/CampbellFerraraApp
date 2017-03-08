@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -86,6 +87,7 @@ public class EmailFormActivity extends Activity {
     private SendMail sm;
 
     static EmailFormActivity emailFormActivity;
+    private Vibrator vibrator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +107,7 @@ public class EmailFormActivity extends Activity {
             sm = new SendMail(this, SUBJECT_CONSULTATION);
         }
 
+        vibrator = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
 //        //Adding click listener
 //        sendButton.setOnClickListener(this);
     }
@@ -153,8 +156,10 @@ public class EmailFormActivity extends Activity {
 
     @OnClick(R.id.buttonSend)
     public void buttonSend() {
-        if (FieldValidation())
+        vibrator.vibrate(50);
+        if (FieldValidation()){
             sendEmail();
+        }
     }
 
     @OnClick(R.id.attachButton)
@@ -163,6 +168,7 @@ public class EmailFormActivity extends Activity {
         Intent galleryIntent = new Intent(Intent.ACTION_PICK,
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         // Start the Intent
+        vibrator.vibrate(50);
         startActivityForResult(galleryIntent, 1);
 
     }
@@ -221,6 +227,7 @@ public class EmailFormActivity extends Activity {
         removeAttachmentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vibrator.vibrate(50);
                 removeView(attachmentView);
             }
         });
@@ -261,8 +268,6 @@ public class EmailFormActivity extends Activity {
             }
         }
         return isValid;
-
-
 
     }
 

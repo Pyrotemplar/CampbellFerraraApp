@@ -20,6 +20,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @BindView(R.id.contactUsButtonView) ImageButton contactUsButton;
     @BindView(R.id.directionsButtonView) ImageButton directionButton;
     @BindView(R.id.learnMoreButtonView) ImageButton learnMoreButton;
+    @BindView(R.id.blogButtonView) ImageButton blogButton;
 
     Vibrator vibrator;
 
@@ -36,6 +37,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         contactUsButton.setOnClickListener(this);
         directionButton.setOnClickListener(this);
         learnMoreButton.setOnClickListener(this);
+        blogButton.setOnClickListener(this);
 
         vibrator = (Vibrator) getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
 
@@ -59,6 +61,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         else if (v.getId() == R.id.learnMoreButtonView){
             Intent intent = new Intent(this, LearnMoreActivity.class);
             startActivity(intent);
+        }
+        else if (v.getId() == R.id.blogButtonView){
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://campbellferrara.com/blog/"));
+            startActivity(browserIntent);
         }
     }
 }
